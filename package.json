@@ -7,23 +7,20 @@
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
-    "build": "NODE_ENV=production webpack -p --progress && npm run build:commonjs",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build": "NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdir -p dist",
     "lint": "eslint {src,test}"
   },
-  "main": "lib/index.js",
   "keywords": [
     "onfido",
     "sdk",
     "document",
     "capture",
     "identity",
-    "verification"
+    "verification",
+    "sample"
   ],
   "files": [
-    "dist",
-    "lib",
     "src"
   ],
   "license": "MIT",

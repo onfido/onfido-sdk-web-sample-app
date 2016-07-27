@@ -18,19 +18,17 @@ const config = {
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: 'onfido.min.js'
+    filename: 'onfido.app.min.js'
   },
 
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.less'],
     modulesDirectories: [
-      `${__dirname}/src/lib`,
       `${__dirname}/node_modules`,
       `${__dirname}/src`,
       'node_modules'
     ],
     alias: {
-      components: `${__dirname}/src/components`,    // used for tests
       style: `${__dirname}/src/style`,
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
@@ -43,24 +41,6 @@ const config = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel'
-      },
-      {
-        test: /\.(less|css)$/,
-        include: /src\/components\//,
-        loader: ExtractTextPlugin.extract('style?singleton', [
-          `css?sourceMap=${CSS_MAPS}`,
-          'postcss',
-          `less?sourceMap=${CSS_MAPS}`
-        ].join('!'))
-      },
-      {
-        test: /\.(less|css)$/,
-        exclude: /src\/components\//,
-        loader: ExtractTextPlugin.extract('style?singleton', [
-          `css?sourceMap=${CSS_MAPS}`,
-          `postcss`,
-          `less?sourceMap=${CSS_MAPS}`
-        ].join('!'))
       },
       {
         test: /\.json$/,
@@ -77,21 +57,12 @@ const config = {
     ]
   },
 
-  postcss: () => [
-    customMedia(),
-    autoprefixer({ browsers: 'last 2 versions' }),
-    url({
-      url: "inline"
-    })
-  ],
-
   plugins: ([
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('style.css', {
+    /*new ExtractTextPlugin('style.css', {
       allChunks: true,
       disable: ENV!=='production'
-    }),
-    new webpack.optimize.DedupePlugin(),
+    }),*/
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
@@ -126,18 +97,6 @@ const config = {
   }
 };
 
-if (ENV === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true,
-        warnings: false
-      }
-    })
-  )
-}
+
 
 export default config
