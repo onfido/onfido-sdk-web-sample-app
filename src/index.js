@@ -1,5 +1,4 @@
-import Onfido from 'onfido-sdk-ui'
-
+var Onfido = require('onfido-sdk-ui');
 
 window.onload = function() {
   var url = "https://gentle-gorge-17630.herokuapp.com/api"

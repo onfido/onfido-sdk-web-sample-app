@@ -1,9 +1,5 @@
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-import customMedia from 'postcss-custom-media';
-import url from 'postcss-url';
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -35,34 +31,8 @@ const config = {
     }
   },
 
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(xml|html|txt|md)$/,
-        loader: 'raw'
-      },
-      {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
-      }
-    ]
-  },
-
   plugins: ([
     new webpack.NoErrorsPlugin(),
-    /*new ExtractTextPlugin('style.css', {
-      allChunks: true,
-      disable: ENV!=='production'
-    }),*/
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
