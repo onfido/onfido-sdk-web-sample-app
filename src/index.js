@@ -1,7 +1,7 @@
 var Onfido = require('onfido-sdk-ui');
 
 window.onload = function() {
-  var url = "https://gentle-gorge-17630.herokuapp.com/api"
+  var url = location.protocol+"//"+location.hostname+":8090/jwt"
   var request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.onload = function() {
@@ -10,7 +10,7 @@ window.onload = function() {
 
       Onfido.init({
         useModal: false,
-        token: data.message,
+        token: data.jwt,
         onReady: function() {
           // callback that fires when successfully authorised
         },
@@ -22,6 +22,8 @@ window.onload = function() {
         },
         onComplete: function(event) {
           // callback for when everything is complete
+          var data = Onfido.getCaptures();
+          console.log(data);
         },
         steps: [
           {
