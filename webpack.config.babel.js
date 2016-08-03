@@ -23,12 +23,7 @@ const config = {
       `${__dirname}/node_modules`,
       `${__dirname}/src`,
       'node_modules'
-    ],
-    alias: {
-      style: `${__dirname}/src/style`,
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat'
-    }
+    ]
   },
 
   plugins: ([
