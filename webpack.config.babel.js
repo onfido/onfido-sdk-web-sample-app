@@ -3,8 +3,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const ENV = process.env.NODE_ENV || 'development';
 
-const CSS_MAPS = ENV!=='production';
-
 const config = {
   context: `${__dirname}/src`,
   entry: './index.js',
@@ -40,15 +38,6 @@ const config = {
   ] : []),
 
   stats: { colors: true },
-
-  node: {
-    global: true,
-    process: false,
-    Buffer: false,
-    __filename: false,
-    __dirname: false,
-    setImmediate: false
-  },
 
   devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
 
