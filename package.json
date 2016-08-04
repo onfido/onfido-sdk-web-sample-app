@@ -43,6 +43,7 @@
     "babel-runtime": "^6.6.1",
     "core-js": "^2.2.1",
     "cross-env": "^1.0.8",
+    "css-loader": "^0.23.1",
     "eslint": "^2.5.3",
     "html-webpack-plugin": "^2.14.0",
     "source-map-loader": "^0.1.5",
@@ -52,8 +53,10 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "css-loader": "^0.23.1",
     "express": "^4.14.0",
     "onfido-sdk-ui": "^0.6.1",
-    "pem": "^1.8.3"
+    "pem": "^1.8.3",
+    "style-loader": "^0.13.1"
   }
 }

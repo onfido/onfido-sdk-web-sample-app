@@ -1,0 +1,42 @@
+.onfido-modal-inner {
+  background: white;
+}
+
+.onfido-modal-content {
+  background: white;
+  color: black;
+}
+
+.onfido-capture-ui {
+  color: black;
+}
+
+.onfido-step {
+  background: white;
+}
+
+.onfido-modal-content
+.onfido-btn {
+    display: inline-block;
+    font-weight: 500;
+    border-radius: .25rem;
+    border: none;
+    padding: .375rem .5rem;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.onfido-modal-content
+.onfido-btn-primary,
+.onfido-modal-content
+.onfido-btn-outline  {
+  border: 1px solid #db1711;
+  background: #d40500;
+  color: #ffffff;
+}
+
+.onfido-document-option:hover
+.onfido-document-option__icon {
+  border: 1px solid #db1711;
+}

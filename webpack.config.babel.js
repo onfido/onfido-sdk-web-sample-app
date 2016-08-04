@@ -24,6 +24,12 @@ const config = {
     ]
   },
 
+  module: {
+    loaders: [
+      { test: /\.css$/, loader: "style-loader!css-loader" }
+    ]
+  },
+
   plugins: ([
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
