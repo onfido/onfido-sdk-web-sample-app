@@ -40,3 +40,22 @@
 .onfido-document-option__icon {
   border: 1px solid #db1711;
 }
+
+
+.onfido-document-option:hover .onfido-document-option__icon.icon-identity {
+  background-image: url("assets/icon-identity-hover.svg");
+}
+
+
+.onfido-document-option:hover .onfido-document-option__icon.icon-passport {
+  background-image: url("assets/icon-passport-hover.svg");
+}
+
+
+.onfido-document-option:hover .onfido-document-option__icon.icon-license {
+  background-image: url("assets/icon-license-hover.svg");
+}
+
+.onfido-document-rectangle, .onfido-face-circle, .onfido-overlay-shape {
+    border-color: #db1711;
+}
