@@ -2,3 +2,6 @@
 /lib
 /.DS_Store
 /dist
+/secrets.json
+/key.pem
+/cert.pem

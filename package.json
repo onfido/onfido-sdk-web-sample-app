@@ -4,12 +4,14 @@
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
-    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
+    "dev:webpack": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https --cert cert.pem --key key.pem",
+    "dev": "node app/server.js",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
     "build": "NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdir -p dist",
-    "lint": "eslint {src,test}"
+    "lint": "eslint {src,test}",
+    "link:sdk": "npm link ../onfido-sdk-ui"
   },
   "keywords": [
     "onfido",
@@ -49,6 +51,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "onfido-sdk-ui": "^0.5.0"
+    "express": "^4.14.0",
+    "onfido-sdk-ui": "^0.5.0",
+    "pem": "^1.8.3"
   }
 }
