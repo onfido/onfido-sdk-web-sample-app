@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
@@ -11,7 +11,8 @@
     "build": "NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdir -p dist",
     "lint": "eslint {src,test}",
-    "link:sdk": "npm link ../onfido-sdk-ui"
+    "link:sdk": "npm link ../onfido-sdk-ui",
+    "unlink:sdk": "rm -r ./node_modules/onfido-sdk-ui && npm install"
   },
   "keywords": [
     "onfido",
@@ -52,7 +53,7 @@
   },
   "dependencies": {
     "express": "^4.14.0",
-    "onfido-sdk-ui": "^0.5.0",
+    "onfido-sdk-ui": "^0.6.0",
     "pem": "^1.8.3"
   }
 }
