@@ -1,22 +1,17 @@
-.onfido-modal-inner {
+.onfido-sdk-ui-Modal-inner {
   background: white;
 }
 
-.onfido-modal-content {
+.onfido-sdk-ui-Modal-content {
   background: white;
   color: black;
 }
 
-.onfido-capture-ui {
-  color: black;
-}
-
-.onfido-step {
+.onfido-sdk-ui-Theme-step {
   background: white;
 }
 
-.onfido-modal-content
-.onfido-btn {
+.onfido-sdk-ui-Theme-btn {
     display: inline-block;
     font-weight: 500;
     border-radius: .25rem;
@@ -27,35 +22,36 @@
     cursor: pointer;
 }
 
-.onfido-modal-content
-.onfido-btn-primary,
-.onfido-modal-content
-.onfido-btn-outline  {
+.onfido-sdk-ui-Theme-btn-primary,
+.onfido-sdk-ui-Confirm-btn-outline  {
   border: 1px solid #db1711;
   background: #d40500;
   color: #ffffff;
 }
 
-.onfido-document-option:hover
-.onfido-document-option__icon {
+.onfido-sdk-ui-DocumentSelector-option:hover
+.onfido-sdk-ui-DocumentSelector-icon {
   border: 1px solid #db1711;
 }
 
 
-.onfido-document-option:hover .onfido-document-option__icon.icon-identity {
+.onfido-sdk-ui-DocumentSelector-option:hover
+.onfido-sdk-ui-DocumentSelector-icon.onfido-sdk-ui-DocumentSelector-icon-identity {
   background-image: url("assets/icon-identity-hover.svg");
 }
 
 
-.onfido-document-option:hover .onfido-document-option__icon.icon-passport {
+.onfido-sdk-ui-DocumentSelector-option:hover
+.onfido-sdk-ui-DocumentSelector-icon.onfido-sdk-ui-DocumentSelector-icon-passport {
   background-image: url("assets/icon-passport-hover.svg");
 }
 
 
-.onfido-document-option:hover .onfido-document-option__icon.icon-license {
+.onfido-sdk-ui-DocumentSelector-option:hover
+.onfido-sdk-ui-DocumentSelector-icon.onfido-sdk-ui-DocumentSelector-icon-license {
   background-image: url("assets/icon-license-hover.svg");
 }
 
-.onfido-document-rectangle, .onfido-face-circle, .onfido-overlay-shape {
+.onfido-sdk-ui-Theme-overlay-shape {
     border-color: #db1711;
 }
