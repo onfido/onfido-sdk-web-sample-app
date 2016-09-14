@@ -8,7 +8,7 @@ window.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText)
 
-      Onfido.init({
+      window.onfidoOut = Onfido.init({
         useModal: false,
         token: data.jwt,
         onReady: function() {
@@ -41,3 +41,7 @@ window.onload = function() {
   }
   request.send()
 };
+
+
+require("./style.css")
+require("./style_alt.css")
