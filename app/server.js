@@ -12,7 +12,7 @@ var PORT = 8090;
 var getToken = function(token, originalRes){
   var options = {
     host: 'api.onfido.com',
-    path: '/v2/jwt',
+    path: '/v2/jwt?referrer=*://*/*',
     method: 'GET',
     headers: {
         'Authorization': 'Token token='+token
