@@ -1,32 +1,34 @@
-var https = require('https');
-var express = require('express');
-var pem = require('pem');
-var fs = require('fs');
-var spawn = require('child_process').spawn;
-const url = require('url');
-var secrets = require('../secrets.json');
+import https from 'https';
+import express from 'express';
+import pem from 'pem';
+import fs from 'fs';
+import { spawn } from 'child_process';
+import url from 'url';
+import secrets from '../secrets.json';
+import unirest from 'unirest';
 const USE_WEBPACK_DEVSERVER = false;//helpful for live reloading
 
 var apiToken = secrets.apiToken;
 var PORT = 8090;
 
-var getToken = function(token, originalRes){
-  var options = {
-    host: 'api.onfido.com',
-    path: '/v2/jwt?referrer=*://*/*',
-    method: 'GET',
-    headers: {
-        'Authorization': 'Token token='+token
-    }
-  };
+var onfidoRequest = (method, path, parameters, callback) => {
+  unirest[method]('https://api.onfido.com/v2/'+path)
+    .headers({'Authorization': 'Token token='+apiToken})
+    .send(parameters)
+    .end(callback)
+};
 
-  https.request(options, function(res) {
-    res.setEncoding('utf8');
-    res.on('data', function (chunk) {
-      console.log('BODY: ' + chunk);
-      originalRes.send(chunk);
-    });
-  }).end();
+var getToken = function(token, originalRes){
+  createApplicant( ({body:applicant}) => {
+    onfidoRequest('post','sdk_token',
+      {referrer:"*://*/*", applicant_id:applicant.id},
+      ({body})=> originalRes.send(body)
+    )
+  })
+};
+
+var createApplicant = function(callback){
+  onfidoRequest('post', 'applicants', {first_name:"John",last_name:"Doe"}, callback)
 };
 
 var isOriginHostnameSameAsServer = function(req){

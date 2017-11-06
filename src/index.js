@@ -7,18 +7,12 @@ window.onload = function() {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText)
-
+      console.log("JWT response", data)
       window.onfidoOut = Onfido.init({
         useModal: false,
-        token: data.jwt,
+        token: data.token,
         onReady: function() {
           // callback that fires when successfully authorised
-        },
-        onDocumentCapture: function(event) {
-          // callback for when the document has captured successfully
-        },
-        onFaceCapture: function(event) {
-          // callback for when the face capture was successful
         },
         onComplete: function(event) {
           // callback for when everything is complete
@@ -44,4 +38,3 @@ window.onload = function() {
 
 
 require("./style.css")
-require("./style_alt.css")
