@@ -4,7 +4,6 @@
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
-    "dev:webpack": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https --cert cert.pem --key key.pem",
     "dev": "node appBin/server.js",
     "build": "npm run build:frontend && npm run build:server",
     "build:server": "mkdir -p lib && babel app --out-dir appBin",
@@ -49,8 +48,7 @@
     "html-webpack-plugin": "^2.14.0",
     "source-map-loader": "^0.1.5",
     "url-loader": "0.5.8",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^1.12.14"
   },
   "dependencies": {
     "css-loader": "^0.23.1",
