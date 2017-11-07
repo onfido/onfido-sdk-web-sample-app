@@ -7,13 +7,9 @@ window.onload = function() {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText)
-      console.log("JWT response", data)
       window.onfidoOut = Onfido.init({
         useModal: false,
         token: data.token,
-        onReady: function() {
-          // callback that fires when successfully authorised
-        },
         onComplete: function(event) {
           // callback for when everything is complete
           var data = Onfido.getCaptures();

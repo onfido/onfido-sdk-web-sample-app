@@ -30,14 +30,6 @@ const createJWT = (callback) =>{
   })
 }
 
-const isOriginHostnameSameAsServer = function(req){
-  var origin = req.get('origin');
-  if (!origin) return;
-
-  var originHostname = url.parse(origin).hostname;
-  return originHostname === req.hostname;
-};
-
 const certPath = 'cert.pem';
 const keyPath = 'key.pem';
 
