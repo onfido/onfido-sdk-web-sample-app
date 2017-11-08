@@ -4,12 +4,10 @@
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
-    "dev:webpack": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https --cert cert.pem --key key.pem",
-    "dev": "node app/server.js",
-    "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
-    "prestart": "npm run build",
-    "build": "NODE_ENV=production webpack -p --progress",
-    "prebuild": "mkdir -p dist",
+    "dev": "node appBin/server.js",
+    "build": "npm run build:frontend && npm run build:server",
+    "build:server": "mkdir -p lib && babel app --out-dir appBin",
+    "build:frontend": "mkdir -p dist && NODE_ENV=production webpack -p --progress",
     "lint": "eslint {src,test}",
     "link:sdk": "npm link ../onfido-sdk-ui",
     "unlink:sdk": "rm -r ./node_modules/onfido-sdk-ui && npm install"
@@ -29,6 +27,7 @@
   "license": "MIT",
   "author": "Ricardo Freitas <ricardo.freitas@onfido.com> (https://github.com/rfreitas)",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.7.2",
     "babel-eslint": "^6.0.0",
     "babel-loader": "^6.2.4",
@@ -45,19 +44,18 @@
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "eslint": "^2.5.3",
+    "file-loader": "0.10.1",
     "html-webpack-plugin": "^2.14.0",
     "source-map-loader": "^0.1.5",
-    "superstatic": "^4.0.2",
     "url-loader": "0.5.8",
-    "file-loader": "0.10.1",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^1.12.14"
   },
   "dependencies": {
     "css-loader": "^0.23.1",
     "express": "^4.14.0",
+    "onfido-sdk-ui": "1.1.0",
     "pem": "^1.8.3",
     "style-loader": "^0.13.1",
-    "onfido-sdk-ui": "0.13.0"
+    "unirest": "^0.5.1"
   }
 }
