@@ -10,10 +10,9 @@ window.onload = function() {
       window.onfidoOut = Onfido.init({
         useModal: false,
         token: data.token,
-        onComplete: function(event) {
+        onComplete: function() {
           // callback for when everything is complete
-          var data = Onfido.getCaptures();
-          console.log(data);
+          console.log("Everything is complete");
         },
         steps: [
           {
