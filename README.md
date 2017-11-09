@@ -12,7 +12,7 @@ Example:
 
 ```json
 {
-  "apiToken":"something_1321321321j3123kkljkkl"
+  "apiToken":"YOUR_API_TOKEN_HERE"
 }
 
 ```
