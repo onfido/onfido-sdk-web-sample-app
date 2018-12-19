@@ -53,7 +53,7 @@
   "dependencies": {
     "css-loader": "^0.23.1",
     "express": "^4.14.0",
-    "onfido-sdk-ui": "^3.0.0",
+    "onfido-sdk-ui": "^3.0.1",
     "pem": "^1.8.3",
     "style-loader": "^0.13.1",
     "unirest": "^0.5.1"
