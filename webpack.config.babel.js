@@ -26,6 +26,11 @@ const config = {
 
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        include: [`${__dirname}/src`],
+        use: ['babel-loader']
+      },
       { test: /\.css$/, use: ["style-loader","css-loader"] },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,

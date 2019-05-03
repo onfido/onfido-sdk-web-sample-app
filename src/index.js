@@ -1,13 +1,15 @@
-var Onfido = require('onfido-sdk-ui');
+window.onload = async function() {
+  const {init} = await import('onfido-sdk-ui')
 
-window.onload = function() {
   var url = location.protocol+"//"+location.hostname+":8090/jwt"
+  
   var request = new XMLHttpRequest()
   request.open('GET', url, true)
+
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText)
-      window.onfidoOut = Onfido.init({
+      window.onfidoOut = init({
         useModal: false,
         token: data.token,
         onComplete: function() {
