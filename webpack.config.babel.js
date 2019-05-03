@@ -4,13 +4,13 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const ENV = process.env.NODE_ENV || 'development';
 
 const config = {
-  context: `${__dirname}/src`,
+  context: `${__dirname}/client`,
   entry: './index.js',
 
   output: {
-    library: 'Onfido',
+    library: 'OnfidoSampleApp',
     libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/bin/client`,
     publicPath: '/',
     filename: 'onfido.app.min.js'
   },
@@ -19,7 +19,7 @@ const config = {
     extensions: ['.js', '.json'],
     modules: [
       `${__dirname}/node_modules`,
-      `${__dirname}/src`
+      `${__dirname}/client`
     ]
   },
 
@@ -27,7 +27,7 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        include: [`${__dirname}/src`],
+        include: [`${__dirname}/client`],
         use: ['babel-loader']
       },
       { test: /\.css$/, use: ["style-loader","css-loader"] }
