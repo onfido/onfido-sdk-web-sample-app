@@ -16,8 +16,8 @@ const config = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
-    modulesDirectories: [
+    extensions: ['.js', '.json', '.less'],
+    modules: [
       `${__dirname}/node_modules`,
       `${__dirname}/src`,
       'node_modules'
@@ -25,17 +25,16 @@ const config = {
   },
 
   module: {
-    loaders: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+    rules: [
+      { test: /\.css$/, use: ["style-loader","css-loader"] },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
+        use: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
       }
     ]
   },
 
-  plugins: ([
-    new webpack.NoErrorsPlugin(),
+  plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
@@ -43,9 +42,7 @@ const config = {
       template: './index.html',
       minify: { collapseWhitespace: true }
     })
-  ]).concat(ENV==='production' ? [
-    new webpack.optimize.OccurenceOrderPlugin()
-  ] : []),
+  ],
 
   stats: { colors: true },
 
