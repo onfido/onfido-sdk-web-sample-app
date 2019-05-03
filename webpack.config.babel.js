@@ -16,11 +16,10 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.js', '.json', '.less'],
+    extensions: ['.js', '.json'],
     modules: [
       `${__dirname}/node_modules`,
-      `${__dirname}/src`,
-      'node_modules'
+      `${__dirname}/src`
     ]
   },
 
@@ -31,18 +30,11 @@ const config = {
         include: [`${__dirname}/src`],
         use: ['babel-loader']
       },
-      { test: /\.css$/, use: ["style-loader","css-loader"] },
-      {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        use: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
-      }
+      { test: /\.css$/, use: ["style-loader","css-loader"] }
     ]
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
-    }),
     new HtmlWebpackPlugin({
       template: './index.html',
       minify: { collapseWhitespace: true }
@@ -51,16 +43,7 @@ const config = {
 
   stats: { colors: true },
 
-  devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
-
-  devServer: {
-    port: process.env.PORT || 8080,
-    host: '0.0.0.0',
-    colors: true,
-    publicPath: '/',
-    contentBase: './src',
-    historyApiFallback: true
-  }
+  devtool: "source-map"
 };
 
 

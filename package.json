@@ -3,8 +3,8 @@
   "version": "0.0.2",
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
-    "predev": "npm run build",
-    "dev": "node appBin/server.js",
+    "prestart": "npm run build",
+    "start": "node appBin/server.js",
     "build": "npm run build:frontend && npm run build:server",
     "build:server": "mkdir -p lib && babel app --out-dir appBin",
     "build:frontend": "mkdir -p dist && NODE_ENV=production webpack -p --progress",
