@@ -16,8 +16,8 @@ const config = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
-    modulesDirectories: [
+    extensions: ['.jsx', '.js', '.json', '.less'],
+    modules: [
       `${__dirname}/node_modules`,
       `${__dirname}/src`,
       'node_modules'
@@ -25,7 +25,7 @@ const config = {
   },
 
   module: {
-    loaders: [
+    rules: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
@@ -35,7 +35,7 @@ const config = {
   },
 
   plugins: ([
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
@@ -44,7 +44,7 @@ const config = {
       minify: { collapseWhitespace: true }
     })
   ]).concat(ENV==='production' ? [
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin()
   ] : []),
 
   stats: { colors: true },
