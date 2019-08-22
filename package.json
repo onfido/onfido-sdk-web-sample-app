@@ -42,13 +42,13 @@
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.23.1",
     "url-loader": "0.5.8",
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.3.1"
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.4",
     "express": "^4.14.0",
-    "onfido-sdk-ui": "^5.0.0",
+    "onfido-sdk-ui": "^5.2.3",
     "pem": "^1.8.3",
     "unirest": "^0.5.1"
   }

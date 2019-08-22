@@ -2,7 +2,7 @@ window.onload = async function() {
   const {init} = await import('onfido-sdk-ui')
 
   var url = location.protocol+"//"+location.hostname+":8090/jwt"
-  
+
   var request = new XMLHttpRequest()
   request.open('GET', url, true)
 
@@ -12,9 +12,9 @@ window.onload = async function() {
       window.onfidoOut = init({
         useModal: false,
         token: data.token,
-        onComplete: function() {
+        onComplete: function(data) {
           // callback for when everything is complete
-          console.log("Everything is complete");
+          console.log("Everything is complete", data);
         },
         steps: [
           {
