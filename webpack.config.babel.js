@@ -4,61 +4,46 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const ENV = process.env.NODE_ENV || 'development';
 
 const config = {
-  context: `${__dirname}/src`,
+  context: `${__dirname}/client`,
   entry: './index.js',
 
   output: {
-    library: 'Onfido',
+    library: 'OnfidoSampleApp',
     libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/bin/client`,
     publicPath: '/',
     filename: 'onfido.app.min.js'
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
-    modulesDirectories: [
+    extensions: ['.js', '.json'],
+    modules: [
       `${__dirname}/node_modules`,
-      `${__dirname}/src`,
-      'node_modules'
+      `${__dirname}/client`
     ]
   },
 
   module: {
-    loaders: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+    rules: [
       {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
-      }
+        test: /\.jsx?$/,
+        include: [`${__dirname}/client`],
+        use: ['babel-loader']
+      },
+      { test: /\.css$/, use: ["style-loader","css-loader"] }
     ]
   },
 
-  plugins: ([
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
-    }),
+  plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
       minify: { collapseWhitespace: true }
     })
-  ]).concat(ENV==='production' ? [
-    new webpack.optimize.OccurenceOrderPlugin()
-  ] : []),
+  ],
 
   stats: { colors: true },
 
-  devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
-
-  devServer: {
-    port: process.env.PORT || 8080,
-    host: '0.0.0.0',
-    colors: true,
-    publicPath: '/',
-    contentBase: './src',
-    historyApiFallback: true
-  }
+  devtool: "source-map"
 };
 
 

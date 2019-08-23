@@ -1,13 +1,14 @@
 {
   "sourceMaps": true,
   "presets": [
-    "es2015-minimal",
-    "stage-0"
+    "@babel/preset-env"
   ],
   "plugins": [
-    ["transform-decorators-legacy"],
-    ["add-module-exports"],
-    ["transform-es2015-modules-umd"],
-    ["transform-react-jsx", { "pragma": "h" }]
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-transform-runtime",
+      {
+        "corejs": 3
+      }
+    ]
   ]
 }

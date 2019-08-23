@@ -63,6 +63,6 @@ app.get('/jwt', function (req, res) {
   createJWT(({body})=> res.send(body))
 });
 
-app.use(express.static('dist'));
+app.use(express.static('bin/client'));
 
 startServerSigned();
