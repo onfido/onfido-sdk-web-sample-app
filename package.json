@@ -8,7 +8,9 @@
     "build": "NODE_ENV=production webpack -p --progress",
     "lint": "eslint {src,test}",
     "link:sdk": "npm link ../onfido-sdk-ui",
-    "unlink:sdk": "rm -r ./node_modules/onfido-sdk-ui && npm install"
+    "unlink:sdk": "rm -r ./node_modules/onfido-sdk-ui && npm install",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "onfido",
@@ -36,12 +38,12 @@
     "babel-loader": "^8.0.5",
     "cross-env": "^1.0.8",
     "css-loader": "^2.1.1",
-    "eslint": "^2.5.3",
+    "eslint": "^4.18.2",
     "file-loader": "0.10.1",
     "html-webpack-plugin": "^3.2.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.23.1",
-    "url-loader": "0.5.8",
+    "url-loader": "0.6.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
@@ -49,7 +51,9 @@
     "@babel/runtime-corejs3": "^7.4.4",
     "express": "^4.14.0",
     "onfido-sdk-ui": "^5.2.3",
-    "pem": "^1.8.3",
-    "unirest": "^0.5.1"
-  }
+    "pem": "^1.13.2",
+    "unirest": "^0.6.0",
+    "snyk": "^1.224.0"
+  },
+  "snyk": true
 }
