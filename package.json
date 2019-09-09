@@ -48,8 +48,8 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.4",
     "express": "^4.14.0",
-    "onfido-sdk-ui": "^5.2.3",
-    "pem": "^1.8.3",
-    "unirest": "^0.5.1"
+    "onfido-sdk-ui": "^5.3.0",
+    "pem": "^1.14.2",
+    "unirest": "^0.6.0"
   }
 }
