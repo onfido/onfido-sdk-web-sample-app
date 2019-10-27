@@ -17,7 +17,7 @@ Example:
 
 ```
 
-Git clone the project and run `npm install` and then `npm run dev`.
+Git clone the project and run `npm install` and then `npm run start`.
 
 ## Internals
 
