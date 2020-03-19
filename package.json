@@ -25,13 +25,13 @@
   "license": "MIT",
   "author": "Ricardo Freitas <ricardo.freitas@onfido.com> (https://github.com/rfreitas)",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^7.8.6",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
@@ -44,8 +44,9 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.4",
     "express": "^4.14.0",
-    "onfido-sdk-ui": "^5.7.0",
+    "onfido-sdk-ui": "^5.8.0",
     "pem": "^1.14.4",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "yarn": "^1.22.4"
   }
 }
