@@ -1,16 +1,14 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const ENV = process.env.NODE_ENV || 'development';
-
 const config = {
-  context: `${__dirname}/client`,
+  context: `${__dirname}/src`,
   entry: './index.js',
 
   output: {
     library: 'OnfidoSampleApp',
     libraryTarget: 'umd',
-    path: `${__dirname}/bin/client`,
+    path: `${__dirname}/bin/src`,
     publicPath: '/',
     filename: 'onfido.app.min.js'
   },
@@ -18,8 +16,8 @@ const config = {
   resolve: {
     extensions: ['.js', '.json'],
     modules: [
-      `${__dirname}/node_modules`,
-      `${__dirname}/client`
+      'node_modules',
+      `${__dirname}/src`
     ]
   },
 
@@ -27,7 +25,7 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        include: [`${__dirname}/client`],
+        include: [`${__dirname}/src`],
         use: ['babel-loader']
       },
       { test: /\.css$/, use: ["style-loader","css-loader"] }
@@ -35,6 +33,9 @@ const config = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.SDK_TOKEN_FACTORY_SECRET': JSON.stringify(process.env.SDK_TOKEN_FACTORY_SECRET || '')
+    }),
     new HtmlWebpackPlugin({
       template: './index.html',
       minify: { collapseWhitespace: true }
@@ -45,7 +46,5 @@ const config = {
 
   devtool: "source-map"
 };
-
-
 
 export default config
