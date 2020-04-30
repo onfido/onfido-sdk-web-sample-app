@@ -4,7 +4,7 @@
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "prestart": "npm run build",
-    "start": "webpack-dev-server --inline --hot --progress --https",
+    "start": "webpack-dev-server --inline --hot --progress --https --port 8090",
     "build": "NODE_ENV=production webpack -p --progress",
     "lint": "eslint {src,test}",
     "link:sdk": "npm link ../onfido-sdk-ui",
