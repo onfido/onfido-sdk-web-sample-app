@@ -13,4 +13,4 @@ Git clone the project and run `npm install` and then `npm run start`.
 The core app is the `src/index.js`.
 The `getToken` function will send a request to an internal Onfido service called `sdk-token-factory` that generates JWTs that allows internal contributors to test the app.
 In a real-life integration, the JWT would have to be requested from the host app server, which will then serve it to its front-end before initialising the SDK.
-The application is started using `webpack-dev-server` and it uses `https`. The project is running at https://localhost:8090/.
+The application runs on `https` using `webpack-dev-server`. The project is running at https://localhost:8090/.
