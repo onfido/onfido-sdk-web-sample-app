@@ -15,10 +15,10 @@ const getToken = (onSuccess) => {
 window.onload = async function() {
   const {init} = await import('onfido-sdk-ui')
 
-  getToken(({token}) =>
+  getToken((token) => {
     window.onfidoOut = init({
       useModal: false,
-      token: token,
+      token,
       onComplete: function(data) {
         // callback for when everything is complete
         console.log("Everything is complete", data);
@@ -35,7 +35,7 @@ window.onload = async function() {
         'complete'
       ]
     })
-  )
+  })
 };
 
 
