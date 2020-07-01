@@ -30,16 +30,7 @@ window.onload = async function() {
             title:'Open your new bank account'
           }
         },
-        {
-          type: 'document',
-          options: {
-            documentTypes: {
-              passport: true,
-              driving_licence: true,
-              national_identity_card: true
-            }
-          }
-        },
+        'document',
         'face',
         'complete'
       ]
