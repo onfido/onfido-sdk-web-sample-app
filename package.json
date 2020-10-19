@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.4",
-    "onfido-sdk-ui": "^6.1.0",
+    "onfido-sdk-ui": "^6.2.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
