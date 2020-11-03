@@ -19,7 +19,9 @@
     "verification",
     "sample"
   ],
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "license": "MIT",
   "author": "Ricardo Freitas <ricardo.freitas@onfido.com> (https://github.com/rfreitas)",
   "devDependencies": {
@@ -56,6 +58,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.(js|jsx|json)": ["prettier --write"]
+    "./**/*.(js|jsx|json)": [
+      "prettier --write"
+    ]
   }
 }
