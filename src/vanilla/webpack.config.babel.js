@@ -15,14 +15,14 @@ const config = {
 
   resolve: {
     extensions: ['.js', '.json'],
-    modules: ['node_modules', `${__dirname}/src`],
+    modules: ['node_modules', `${__dirname}`],
   },
 
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        include: [`${__dirname}/src`],
+        include: [`${__dirname}`],
         use: ['babel-loader'],
       },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
