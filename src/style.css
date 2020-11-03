@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
 body {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
 @media (min-width: 30em) {
   #onfido-mount {
