@@ -7,4 +7,5 @@
 /cert.pem
 .DS_Store
 /appBin
-/bin/
+/bin
+/src/**/bin
