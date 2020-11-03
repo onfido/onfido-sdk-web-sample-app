@@ -9,3 +9,5 @@
 /appBin
 /bin
 /src/**/bin
+/src/**/build
+/src/**/node_modules

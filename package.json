@@ -3,9 +3,11 @@
   "version": "0.0.2",
   "description": "Sample App for JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
+    "build:vanilla": "NODE_ENV=production webpack -p --progress --config ./src/vanilla/webpack.config.babel.js",
     "prestart:vanilla": "npm run build:vanilla",
     "start:vanilla": "webpack-dev-server --config ./src/vanilla/webpack.config.babel.js --inline --hot --progress --https --port 8090",
-    "build:vanilla": "NODE_ENV=production webpack -p --progress --config ./src/vanilla/webpack.config.babel.js",
+    "build:react": "cd src/react && react-scripts build",
+    "start:react": "cd src/react && PORT=8020 react-scripts start",
     "lint": "eslint src/**/*.js",
     "link:sdk": "npm link ../onfido-sdk-ui",
     "unlink:sdk": "rm -r ./node_modules/onfido-sdk-ui && npm install"
@@ -50,6 +52,9 @@
     "eslint-plugin-react": "^7.21.5",
     "onfido-sdk-ui": "^6.2.0",
     "prettier": "^2.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.0",
     "webpack-dev-server": "^3.11.0"
   },
   "husky": {
