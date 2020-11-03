@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Onfido from 'onfido-sdk-ui'
 
 const getToken = () =>
@@ -30,10 +30,12 @@ const getToken = () =>
   })
 
 const App = () => {
+  const [loading, setLoading] = useState(false)
   const [onfidoInstance, setOnfidoInstance] = useState(null)
 
   const initOnfido = async () => {
     try {
+      setLoading(true)
       const token = await getToken()
 
       const instance = Onfido.init({
@@ -57,6 +59,7 @@ const App = () => {
       })
 
       setOnfidoInstance(instance)
+      setLoading(false)
     } catch (err) {
       console.log('err:', err.message, err.request)
     }
@@ -64,10 +67,13 @@ const App = () => {
 
   useEffect(() => {
     initOnfido()
-    return () => onfidoInstance && onfidoInstance.tearDown()
+    return () => {
+      console.log('tear down', onfidoInstance)
+      onfidoInstance && onfidoInstance.tearDown()
+    }
   }, [])
 
-  return null
+  return <div id="onfido-mount">{loading && <div>Loading...</div>}</div>
 }
 
 export default App
