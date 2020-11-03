@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config = {
-  context: `${__dirname}/src`,
+  context: `${__dirname}`,
   entry: './index.js',
 
   output: {
