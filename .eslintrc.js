@@ -1,10 +1,10 @@
 module.exports = {
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "prettier/standard",
+    'eslint:recommended',
+    // 'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'prettier/standard',
   ],
   env: {
     browser: true,
@@ -17,11 +17,16 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["react", "prettier"],
+  plugins: ['react', 'prettier'],
   globals: {
     expect: false,
   },
   rules: {
-    "prefer-const": "error",
+    'prefer-const': 'error',
   },
-};
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+}

@@ -56,6 +56,6 @@
     }
   },
   "lint-staged": {
-    "./src/*.(js|jsx|json)": ["prettier --write"]
+    "src/**/*.(js|jsx|json)": ["prettier --write"]
   }
 }
