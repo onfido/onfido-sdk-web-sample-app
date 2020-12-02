@@ -11,3 +11,4 @@
 /src/**/bin
 /src/**/build
 /src/**/node_modules
+/src/react/.eslintcache
