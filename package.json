@@ -48,7 +48,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
-    "onfido-sdk-ui": "^6.2.0",
+    "onfido-sdk-ui": "^6.3.1",
     "prettier": "^2.1.2",
     "webpack-dev-server": "^3.11.0"
   },
