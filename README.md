@@ -8,13 +8,32 @@ By use of script tags you can see the example in the
 
 ## Run the app
 
-Firstly, clone the project and run `npm install`.
+Firstly, clone the project and run `npm install`. There're two ways to run the demo app:
+The vanilla way & the React way.
 
 ### The vanilla way
 
 - Start with `npm run start:vanilla`
 - Access it via HTTPS: `https://localhost:8010`
-- The app is located in `src/vanilla/index.js`
+- The app is located at `src/vanilla/index.js`
+
+### The React way
+
+- Start with `npm run start:react`
+- Access it via HTTPS: `https://localhost:8020`
+- The app is located at `src/react/src/index.js`
+
+## Build the app
+
+### The vanilla way
+
+- Bundle with `npm run build:vanilla`
+- The production bundle is located at `src/vanilla/bin`
+
+### The React way
+
+- Bundle with `npm run build:react`
+- The production bundle is located at `src/react/build`
 
 ## Internals
 
