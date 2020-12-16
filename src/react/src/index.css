@@ -1,10 +1,14 @@
-html, body {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
 }
+
 body {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
+
 @media (min-width: 30em) {
   #onfido-mount {
     position: relative;

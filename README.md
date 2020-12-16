@@ -2,26 +2,42 @@
 
 ## Overview
 
-The purpose of this app is to show how to use the Onfido JavaScript SDK by use of the npm module. By use of script tags you can see the example in the [SDK repo here](https://github.com/onfido/onfido-sdk-ui).
+The purpose of this app is to show how to use the Onfido JavaScript SDK by use of the npm module.
+By use of script tags you can see the example in the
+[SDK repo here](https://github.com/onfido/onfido-sdk-ui).
 
 ## Run the app
 
-Create a file `./secrets.json` and add an `apiToken` to it as a JSON property.
+Firstly, clone the project and run `npm install`. There're two ways to run the demo app:
+The vanilla way & the React way.
 
-Example:
+### The vanilla way
 
-```json
-{
-  "apiToken":"YOUR_API_TOKEN_HERE"
-}
+- Start with `npm run start:vanilla`
+- Access it via HTTPS: `https://localhost:8010`
+- The app is located at `src/vanilla/index.js`
 
-```
+### The React way
 
-Git clone the project and run `npm install` and then `npm run dev`.
+- Start with `npm run start:react`
+- Access it via HTTPS: `https://localhost:8020`
+- The app is located at `src/react/src/index.js`
+
+## Build the app
+
+### The vanilla way
+
+- Bundle with `npm run build:vanilla`
+- The production bundle is located at `src/vanilla/bin`
+
+### The React way
+
+- Bundle with `npm run build:react`
+- The production bundle is located at `src/react/build`
 
 ## Internals
 
-The core app is the `node app/server.js`.
-This server will be serving JWTs to the front-end and will also initialize the Webpack server, which in turn provides the front-end code and assets.
-This node server will also create https credentials which will be shared with the Webpack server as well.
-This credential sharing is particularly important considering that both the JWT endpoint, provided by the node server, and the front-end code, provided by the Webpack server, are different servers on different ports, and since the client will be hitting both (asking for JWTs and for assets), the user would have to accept two sets of credentials in case they had not been shared.
+- The `getToken` function will send a request to an internal Onfido service
+  called `sdk-token-factory` that generates JWTs that allows internal contributors to test the app.
+- In a real-life integration, the JWT would have to be requested from the host app server,
+  which will then serve it to its front-end before initialising the SDK.

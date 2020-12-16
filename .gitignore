@@ -7,4 +7,8 @@
 /cert.pem
 .DS_Store
 /appBin
-/bin/
+/bin
+/src/**/bin
+/src/**/build
+/src/**/node_modules
+/src/react/.eslintcache
