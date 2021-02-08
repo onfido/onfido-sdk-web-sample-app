@@ -23,6 +23,7 @@ module.exports = {
   },
   rules: {
     'prefer-const': 'error',
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {
