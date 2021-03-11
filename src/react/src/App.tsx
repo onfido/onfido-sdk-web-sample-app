@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as Onfido from 'onfido-sdk-ui'
 
-const getToken = () =>
+const getToken = (): Promise<string> =>
   new Promise((resolve, reject) => {
     const url = 'https://token-factory.onfido.com/sdk_token'
 
-    const onRequestError = (request) => {
+    const onRequestError = (request: XMLHttpRequest): any => {
       const error = new Error(`Request failed with status ${request.status}`)
       Object.assign(error, { request })
       reject(error)
@@ -25,13 +25,15 @@ const getToken = () =>
         onRequestError(request)
       }
     }
-    request.onerror = onRequestError
+    request.onerror = () => onRequestError(request)
     request.send()
   })
 
 const App = () => {
   const [loading, setLoading] = useState(false)
-  const [onfidoInstance, setOnfidoInstance] = useState(null)
+  const [onfidoInstance, setOnfidoInstance] = useState<Onfido.SdkHandle | null>(
+    null
+  )
 
   const initOnfido = async () => {
     try {
