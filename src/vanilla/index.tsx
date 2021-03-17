@@ -1,4 +1,4 @@
-const getToken = (onSuccess) => {
+const getToken = (onSuccess: (token: string) => void) => {
   const url = 'https://token-factory.onfido.com/sdk_token'
   const request = new XMLHttpRequest()
   request.open('GET', url, true)

@@ -1,9 +1,10 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import 'webpack-dev-server'
 
 const config = {
   context: `${__dirname}`,
-  entry: './index.js',
+  entry: './index.tsx',
 
   output: {
     library: 'OnfidoSampleApp',
@@ -21,7 +22,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|ts)x?$/,
         include: [`${__dirname}`],
         use: ['babel-loader'],
       },
