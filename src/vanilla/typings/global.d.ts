@@ -1,7 +1,7 @@
 import { SdkHandle } from 'onfido-sdk-ui'
 
 declare global {
-  interface Window extends NodeJS.Global {
+  interface Window extends WindowOrWorkerGlobalScope {
     onfidoOut?: SdkHandle
   }
 }
