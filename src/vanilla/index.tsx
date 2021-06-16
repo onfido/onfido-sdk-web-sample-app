@@ -17,6 +17,7 @@ const getToken = (onSuccess: (token: string) => void) => {
 
 window.onload = async function () {
   const { init } = await import('onfido-sdk-ui')
+  // const { init } = await import('onfido-sdk-ui/dist/onfidoAuth.min.js') // uncomment this for Auth and add 'auth' in the steps array
 
   getToken((token) => {
     window.onfidoOut = init({
