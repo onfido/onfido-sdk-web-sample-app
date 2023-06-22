@@ -1,6 +1,5 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CopyPlugin from 'copy-webpack-plugin'
 import 'webpack-dev-server'
 
 const config = {
@@ -32,16 +31,6 @@ const config = {
   },
 
   plugins: [
-    // this is to allow the Auth module to work
-    // https://github.com/onfido/onfido-sdk-ui#42-npm-style-import
-    new CopyPlugin({
-      patterns: [
-        {
-          from: `../../node_modules/onfido-sdk-ui/dist/auth-sdk`,
-          to: `${__dirname}/bin/src/auth-sdk`,
-        },
-      ],
-    }),
     new webpack.DefinePlugin({
       'process.env.SDK_TOKEN_FACTORY_SECRET': JSON.stringify(
         process.env.SDK_TOKEN_FACTORY_SECRET || ''
