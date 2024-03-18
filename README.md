@@ -9,35 +9,17 @@ By use of script tags you can see the example in the
 ## Run the app
 
 Firstly, clone the project and run `npm install`. There're two ways to run the demo app:
-The vanilla way & the React way.
+The javascript way & the React way.
 
-### The vanilla way
+### Javascript
 
-- Start with `npm run start:vanilla`
-- Access it via HTTPS: `https://localhost:8010`
-- The app is located at `src/vanilla/index.js`
+1. Add your token to `src/javascript/index.html`
+2. Start with `npm run start:javascript`
+3. Access it at https://localhost:3000
 
-### The React way
+### React
 
-- Start with `npm run start:react`
-- Access it via HTTPS: `https://localhost:8020`
-- The app is located at `src/react/src/index.js`
+1. Add your token to `src/react/App.js`
+2. Start with `npm run start:react`
+3. Access it at: https://localhost:5173
 
-## Build the app
-
-### The vanilla way
-
-- Bundle with `npm run build:vanilla`
-- The production bundle is located at `src/vanilla/bin`
-
-### The React way
-
-- Bundle with `npm run build:react`
-- The production bundle is located at `src/react/build`
-
-## Internals
-
-- The `getToken` function will send a request to an internal Onfido service
-  called `sdk-token-factory` that generates JWTs that allows internal contributors to test the app.
-- In a real-life integration, the JWT would have to be requested from the host app server,
-  which will then serve it to its front-end before initialising the SDK.
