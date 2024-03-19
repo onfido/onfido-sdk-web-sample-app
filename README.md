@@ -13,13 +13,15 @@ The javascript way & the React way.
 
 ### Javascript
 
-1. Add your token to `src/javascript/index.html`
-2. Start with `npm run start:javascript`
-3. Access it at https://localhost:3000
+1. Run `npm i`
+2. Add your token to `src/javascript/index.html`
+3. Start with `npm run start:javascript`
+4. Access it at http://localhost:3000
 
 ### React
 
-1. Add your token to `src/react/App.js`
-2. Start with `npm run start:react`
-3. Access it at: https://localhost:5173
+1. Run `npm i`
+2. Add your token to `src/react/App.tsx`
+3. Start with `npm run start:react`
+4. Access it at: http://localhost:5173
 
